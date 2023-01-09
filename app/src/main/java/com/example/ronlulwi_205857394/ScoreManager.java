@@ -8,15 +8,9 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,12 +27,7 @@ public class ScoreManager {
         locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
         this.myContext = context;
 
-        comparator = new Comparator<Score>() {
-            @Override
-            public int compare(Score a, Score b) {
-                return b.getScore() - a.getScore();
-            }
-        };
+        comparator = (a, b) -> b.getScore() - a.getScore();
     }
 
     public boolean checkScore(ScoreList scoreList, int score) {

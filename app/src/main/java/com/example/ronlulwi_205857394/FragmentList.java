@@ -1,22 +1,14 @@
 package com.example.ronlulwi_205857394;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.button.MaterialButton;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FragmentList extends Fragment {
 
@@ -38,7 +30,6 @@ public class FragmentList extends Fragment {
         scoreList = activityScore.getScoreList();
         findViews(view);
         initViews();
-
         return view;
     }
 
@@ -68,13 +59,12 @@ public class FragmentList extends Fragment {
                 view.findViewById(R.id.list_BTN_show9),
         };
 
-        }
+    }
 
     private void initViews() {
         for (int i = 0; i < scoreList.getScores().size(); i++)
             scoresDisplay[i].setText("Score: " + scoreList.getScores().get(i).getScore());
 
-        Log.d("ptt", "size" + scoreList.getScores().size());
         View.OnClickListener onClickListener0 = view -> user1Clicked(0);
         View.OnClickListener onClickListener1 = view -> user1Clicked(1);
         View.OnClickListener onClickListener2 = view -> user1Clicked(2);
